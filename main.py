@@ -5,7 +5,7 @@ import streamlit as st
 breast_cancer_model = pickle.load(open('breast_cancer_model.sav', 'rb'))
 
 #Judul Web
-st.title('Data Mining Prediksi Pasien Kanker Payudara')
+st.title('Breast Cancer Predictor')
 
 
 
@@ -22,16 +22,15 @@ with col2 :
 with col2 :
     mean_smoothness =st.text_input('input_mean_smoothness', 0 , 500)
     
-    #code untuk prediksi
 cancer_diagnosis = ''
 
-if st.button('Prediksi Kanker'):
+if st.button('Predict'):
     cancer_prediction = breast_cancer_model.predict([[meanradius, mean_texture, mean_perimeter, mean_area, mean_smoothness ]])
     
     if(cancer_prediction[0] == 1):
-        cancer_diagnosis = 'Pasien mengalami kanker'
+        cancer_diagnosis = 'Breast Cancer Detected, we recommend you to visit a doctor'
     else:
-        cancer_diagnosis = 'Pasien tidak mengalami kanker'
+        cancer_diagnosis = 'Breast Cancer not Detected'
     
     st.success(cancer_diagnosis, icon="✅")
   
