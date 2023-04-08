@@ -8,22 +8,23 @@ image = Image.open('ribbon.jpg')
 breast_cancer_model = pickle.load(open('breast_cancer_model.sav', 'rb'))
 
 #Judul Web
-st.title('Breast Cancer Predictor')
 st.image(image)
+st.title('Breast Cancer Predictor')
+
 
 
 col1, col2 = st.columns(2)
 
 with col1 :
-    meanradius = st.text_input('input_meanradius', 0, 500)
+    meanradius = st.text_input('Clump Thickness', 0, 500)
 with col1 :
-    mean_texture = st.text_input('input_mean_texture', 0, 500)
+    mean_texture = st.text_input('Uniform cell size', 0, 500)
 with col1 :
-    mean_perimeter = st.text_input('input_mean_perimeter', 0, 500)
+    mean_perimeter = st.text_input('Uniform cell shape', 0, 500)
 with col2 :
-    mean_area = st.text_input('input_mean_area', 0, 500)
+    mean_area = st.text_input('Marginal Adhesion', 0, 500)
 with col2 :
-    mean_smoothness =st.text_input('input_mean_smoothness', 0 , 500)
+    mean_smoothness =st.text_input('Normal Nucleoli', 0 , 500)
     
 cancer_diagnosis = ''
 
