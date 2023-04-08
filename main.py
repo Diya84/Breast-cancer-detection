@@ -1,5 +1,8 @@
 import pickle
 import streamlit as st
+from PIL import Image
+image = Image.open('ribbon.jpg')
+st.image(image)
 
 
 breast_cancer_model = pickle.load(open('breast_cancer_model.sav', 'rb'))
